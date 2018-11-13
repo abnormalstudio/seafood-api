@@ -1,13 +1,11 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :catch, Types::CatchType, null: false do
+      argument :code, ID, 'Code of catch', required: true
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def catch(code:)
+      Catch.find_by!(code: code)
     end
   end
 end
