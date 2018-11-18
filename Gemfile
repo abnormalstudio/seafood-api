@@ -40,8 +40,6 @@ gem 'graphql', '~> 1.9.0.pre1'
 
 gem 'rack-cors', require: 'rack/cors'
 
-gem 'geocoder', '~> 1.5'
-
 gem 'http', '~> 4.0'
 
 group :development, :test do
