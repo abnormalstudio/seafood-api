@@ -1,3 +1,5 @@
+fish = Fish.first
+
 fishery = Fishery.create!(
   name: "Tony's Tuna Fishing",
   address: "249 Elmira Rd, Souris, PE C0A 2B0",
@@ -6,21 +8,8 @@ fishery = Fishery.create!(
   email: "tonymacdonald@hotmail.ca",
   website: "http://www.tonystunafishing.com")
 
-salmon = Fish.create!(
-  species: 'Salmon',
-  mercury_mean_ppm: 0.022,
-  mercury_num_samples: 94)
-shrimp = Fish.create!(
-  species: 'Shrimp',
-  mercury_mean_ppm: 0.009,
-  mercury_num_samples: 40)
-tuna = Fish.create!(
-  species: 'Tuna',
-  mercury_mean_ppm: 0.144,
-  mercury_num_samples: 3)
-
 catch1 = Catch.create!(
-  fish: tuna,
+  fish: fish,
   fishery: fishery,
   latitude: 46.707684,
   longitude: -62.136615,

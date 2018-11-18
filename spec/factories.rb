@@ -12,6 +12,16 @@ FactoryBot.define do
     species { "Tuna" }
     mercury_mean_ppm { 0.144 }
     mercury_num_samples { 3 }
+    nutrients {
+      [
+        {
+          'name' => 'Water',
+          'group' => 'Proximates',
+          'unit' => 'g',
+          'value' => 68.09
+        }
+      ]
+    }
   end
 
   factory :catch do
@@ -20,6 +30,7 @@ FactoryBot.define do
     code { "ABC123" }
     latitude { 46.707684 }
     longitude { -62.136615 }
+    location { 'Pacific Ocean' }
     caught_on { Time.zone.parse("2018-10-10").to_date }
   end
 

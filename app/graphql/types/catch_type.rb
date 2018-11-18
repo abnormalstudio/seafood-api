@@ -3,6 +3,7 @@ module Types
     field :id, String, null: false, method: :code
     field :latitude, Float, null: false
     field :longitude, Float, null: false
+    field :location, String, null: false
     field :caughtOn, String, null: false
     field :fish, FishType, null: false
     field :fishery, FisheryType, null: false

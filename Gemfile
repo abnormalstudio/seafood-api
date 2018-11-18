@@ -38,11 +38,18 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'graphql', '~> 1.9.0.pre1'
 
+gem 'rack-cors', require: 'rack/cors'
+
+gem 'geocoder', '~> 1.5'
+
+gem 'http', '~> 4.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+  gem 'dotenv-rails', '~> 2.5'
 end
 
 group :development do

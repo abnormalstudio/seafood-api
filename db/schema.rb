@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_142919) do
+ActiveRecord::Schema.define(version: 2018_11_18_005539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_142919) do
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location", null: false
     t.index ["code"], name: "index_catches_on_code", unique: true
     t.index ["fish_id"], name: "index_catches_on_fish_id"
     t.index ["fishery_id"], name: "index_catches_on_fishery_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_142919) do
     t.integer "mercury_num_samples"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "nutrients", default: [], null: false
     t.index ["species"], name: "index_fish_on_species"
   end
 
