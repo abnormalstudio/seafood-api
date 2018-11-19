@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_005539) do
+ActiveRecord::Schema.define(version: 2018_11_19_032318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 2018_11_18_005539) do
     t.index ["latitude", "longitude"], name: "index_catches_on_latitude_and_longitude"
   end
 
-  create_table "fish", force: :cascade do |t|
-    t.string "species", null: false
-    t.float "mercury_mean_ppm"
-    t.integer "mercury_num_samples"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.jsonb "nutrients", default: [], null: false
-    t.index ["species"], name: "index_fish_on_species"
-  end
-
   create_table "fisheries", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
@@ -51,6 +41,16 @@ ActiveRecord::Schema.define(version: 2018_11_18_005539) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_fisheries_on_name"
+  end
+
+  create_table "fishes", force: :cascade do |t|
+    t.string "species", null: false
+    t.float "mercury_mean_ppm"
+    t.integer "mercury_num_samples"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "nutrients", default: [], null: false
+    t.index ["species"], name: "index_fishes_on_species"
   end
 
   create_table "scans", force: :cascade do |t|

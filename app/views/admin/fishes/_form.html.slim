@@ -1,0 +1,6 @@
+= simple_form_for [:admin, fish] do |f|
+  = f.input :species
+  = f.input :mercury_mean_ppm, as: :float
+  = f.input :mercury_num_samples, as: :integer
+
+  = f.submit class: 'waves-effect waves-light btn-small'

@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Seafood Transparency Project
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_pack_tag 'admin'
+    = stylesheet_pack_tag 'admin'
+
+  body
+    nav
+      .nav-wrapper
+        ul.right.hide-on-med-and-down#nav-mobile
+          li
+            = link_to 'Fisheries', admin_fisheries_url
+          li
+            = link_to 'Fishes', admin_fishes_url
+          li
+            = link_to 'Catches', admin_catches_url
+
+    .container
+      = yield

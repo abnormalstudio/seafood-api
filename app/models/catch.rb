@@ -4,6 +4,8 @@ class Catch < ApplicationRecord
   belongs_to :fish
   has_many :scans
 
+  validates :latitude, :longitude, :caught_on, :code, :location, presence: true
+
   before_validation :set_code, on: :create
 
   def self.generate_code

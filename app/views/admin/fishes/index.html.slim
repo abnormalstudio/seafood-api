@@ -1,0 +1,17 @@
+h1 Fishes
+
+= link_to 'New', new_admin_fish_url, class: 'waves-effect waves-light btn-small'
+
+table
+  thead
+    tr
+      th Species
+      th Created
+      th Actions
+  tbody
+    - @fishes.each do |fish|
+      tr
+        td = fish.species
+        td = fish.created_at
+        td
+          = link_to 'Edit', edit_admin_fish_url(fish), class: 'waves-effect waves-light btn-small'

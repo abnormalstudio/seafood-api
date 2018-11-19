@@ -37,10 +37,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'graphql', '~> 1.9.0.pre1'
-
 gem 'rack-cors', require: 'rack/cors'
-
 gem 'http', '~> 4.0'
+gem 'slim', '~> 4.0', '>= 4.0.1'
+gem 'webpacker', '~> 3.5', '>= 3.5.5'
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'ransack', '~> 2.0', '>= 2.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
