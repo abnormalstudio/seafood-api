@@ -73,6 +73,8 @@ namespace :seafood do
   namespace :temp do
     desc "Import fish"
     task import_fish: :environment do
+      require 'csv'
+
       CSV.parse(fish_csv) do |row|
         fish = Fish.new(
           species: row[0].titleize,
