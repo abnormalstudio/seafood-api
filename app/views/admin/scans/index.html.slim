@@ -1,0 +1,23 @@
+h1 Scans
+
+= link_to "Back to catch", edit_admin_catch_url(@catch), class: 'waves-effect waves-light btn-small'
+= " "
+= link_to 'New', new_admin_catch_scan_url(@catch), class: 'waves-effect waves-light btn-small'
+
+table
+  thead
+    tr
+      th Scanner
+      th Scanned At
+      th Lat,Lng
+      th Created
+      th Actions
+  tbody
+    - @scans.each do |row|
+      tr
+        td = row.scanner
+        td = row.scanned_at
+        td = "#{row.latitude},#{row.longitude}"
+        td = row.created_at
+        td
+          = link_to 'Edit', edit_admin_catch_scan_url(@catch, row), class: 'waves-effect waves-light btn-small'

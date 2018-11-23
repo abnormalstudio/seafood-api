@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     root to: 'fisheries#index'
     resources :fisheries
     resources :fishes
-    resources :catches
+    resources :catches do
+      resources :scans
+    end
   end
 end

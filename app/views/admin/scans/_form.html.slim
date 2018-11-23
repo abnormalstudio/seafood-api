@@ -1,0 +1,8 @@
+= simple_form_for [:admin, parent, object] do |f|
+  = f.input :scanner
+  = f.input 'scanned_at[date]', as: :string, input_html: {class: 'datepicker', value: object.scanned_at.try(:strftime, '%Y-%m-%d')}, label: 'Scanned Date'
+  = f.input 'scanned_at[time]', as: :string, input_html: {class: 'timepicker', value: object.scanned_at.try(:strftime, '%H:%M')}, label: 'Scanned Time'
+  = f.input :latitude, as: :float
+  = f.input :longitude, as: :float
+
+  = f.submit class: 'waves-effect waves-light btn-small'

@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+  const elems = document.querySelectorAll(".timepicker");
+  window.M.Timepicker.init(elems, { twelveHour: false });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
   const elems = document.querySelectorAll("select");
   window.M.FormSelect.init(elems, {});
 });
