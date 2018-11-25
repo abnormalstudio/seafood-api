@@ -1,8 +1,10 @@
 class Admin::FisheriesController < Admin::BaseController
   before_action :load_fishery, only: [:edit, :update]
+  before_action :must_have_fishery, only: [:index]
+  before_action :only_single_fishery, only: [:new, :create]
 
   def index
-    @search = Fishery.search(params[:q])
+    @search = policy_scope(Fishery).search(params[:q])
     @fisheries = @search.result.paginate(page: params[:page])
   end
 
@@ -13,6 +15,11 @@ class Admin::FisheriesController < Admin::BaseController
   def create
     @fishery = Fishery.new(fishery_params)
     if @fishery.save
+      unless current_user.admin?
+        current_user.fishery = @fishery
+        current_user.save!
+      end
+
       redirect_to edit_admin_fishery_url(@fishery)
     else
       render :new
@@ -33,12 +40,28 @@ class Admin::FisheriesController < Admin::BaseController
   private
 
   def load_fishery
-    @fishery = Fishery.find(params[:id])
+    @fishery = policy_scope(Fishery).find(params[:id])
   end
 
   def fishery_params
     params.require(:fishery).permit(
       :name, :address, :contact, :phone, :email, :website
     )
+  end
+
+  def only_single_fishery
+    return if current_user.admin?
+
+    if current_user.fishery.present?
+      redirect_to edit_admin_fishery_url(current_user.fishery)
+    end
+  end
+
+  def must_have_fishery
+    return if current_user.admin?
+
+    if current_user.fishery.blank?
+      redirect_to new_admin_fishery_url
+    end
   end
 end

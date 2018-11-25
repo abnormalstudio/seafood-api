@@ -2,7 +2,7 @@ class Admin::CatchesController < Admin::BaseController
   before_action :load_catch, only: [:edit, :update]
 
   def index
-    @search = Catch.includes(:fish, :fishery).search(params[:q])
+    @search = policy_scope(Catch).includes(:fish, :fishery).search(params[:q])
     @catches = @search.result.paginate(page: params[:page])
   end
 
@@ -12,6 +12,9 @@ class Admin::CatchesController < Admin::BaseController
 
   def create
     @catch = Catch.new(catch_params)
+    unless current_user.admin?
+      @catch.fishery = current_user.fishery
+    end
     if @catch.save
       redirect_to edit_admin_catch_url(@catch)
     else
@@ -33,7 +36,7 @@ class Admin::CatchesController < Admin::BaseController
   private
 
   def load_catch
-    @catch = Catch.find(params[:id])
+    @catch = policy_scope(Catch).find(params[:id])
   end
 
   def catch_params

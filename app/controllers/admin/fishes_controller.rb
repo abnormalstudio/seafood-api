@@ -1,4 +1,5 @@
 class Admin::FishesController < Admin::BaseController
+  before_action :require_admin
   before_action :load_fish, only: [:edit, :update]
 
   def index

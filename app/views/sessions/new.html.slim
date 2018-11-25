@@ -1,0 +1,9 @@
+h1 Log In
+
+= simple_form_for @user, url: sessions_url do |f|
+  = f.input :email
+  = f.input :password
+
+  = f.submit class: 'waves-effect waves-light btn-small', value: 'Login'
+
+= link_to "Create a new account", new_registration_url

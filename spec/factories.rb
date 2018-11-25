@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :user do
+    email { "MyString" }
+    name { "MyString" }
+    fishery_id { 1 }
+  end
   factory :fishery do
     name { "Tony's Tuna Fishing" }
     address  { "249 Elmira Rd, Souris, PE C0A 2B0" }

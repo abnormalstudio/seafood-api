@@ -39,7 +39,7 @@ class Admin::ScansController < Admin::BaseController
   private
 
   def load_catch
-    @catch = Catch.find(params[:catch_id])
+    @catch = policy_scope(Catch).find(params[:catch_id])
   end
 
   def load_scan

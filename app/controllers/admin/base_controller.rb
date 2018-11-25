@@ -1,5 +1,9 @@
 class Admin::BaseController < ApplicationController
-  http_basic_authenticate_with name: ENV.fetch('ADMIN_USERNAME','admin'), password: ENV.fetch('ADMIN_PASSWORD','password')
   skip_before_action :verify_authenticity_token
+  before_action :require_authenticated
   layout "admin"
+
+  def require_admin
+    raise Pundit::NotAuthorizedError unless current_user.admin?
+  end
 end
