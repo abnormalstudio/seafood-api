@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root to: 'fisheries#index'
     resources :fisheries
     resources :fishes
+    resources :reports, only: [:index]
     resources :catches do
       resources :scans
     end

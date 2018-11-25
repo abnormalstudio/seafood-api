@@ -1,0 +1,23 @@
+h1 Reports
+
+table
+  thead
+    tr
+      th Fishery
+      th Catch
+      th Contact
+      th Issue
+      th Created
+  tbody
+    - @reports.each do |report|
+      tr
+        td = link_to report.catch.fishery.name, edit_admin_fishery_url(report.catch.fishery)
+        td = link_to report.catch.code, edit_admin_catch_url(report.catch)
+        td
+          = report.name
+          br
+          = report.phone
+          br
+          = report.email
+        td = report.issue
+        td = report.created_at

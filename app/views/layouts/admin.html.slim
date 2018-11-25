@@ -17,6 +17,8 @@ html
                 = link_to 'Fisheries', admin_fisheries_url
               li
                 = link_to 'Fishes', admin_fishes_url
+              li
+                = link_to 'Reports', admin_reports_url
             - if current_user.fishery.present?
               li
                 = link_to 'My Fishery', edit_admin_fishery_url(current_user.fishery)
