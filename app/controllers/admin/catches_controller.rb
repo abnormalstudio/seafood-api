@@ -41,7 +41,8 @@ class Admin::CatchesController < Admin::BaseController
 
   def catch_params
     params.require(:catch).permit(
-      :fish_id, :fishery_id, :caught_on, :latitude, :longitude, :code, :location
+      :fish_id, :fishery_id, :caught_on, :latitude, :longitude, :code, :location,
+      :vessel, :preservation_method
     )
   end
 end

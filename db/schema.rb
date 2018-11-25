@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_012052) do
+ActiveRecord::Schema.define(version: 2018_11_25_222522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2018_11_25_012052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location", null: false
+    t.string "vessel"
+    t.string "preservation_method"
     t.index ["code"], name: "index_catches_on_code", unique: true
     t.index ["fish_id"], name: "index_catches_on_fish_id"
     t.index ["fishery_id"], name: "index_catches_on_fishery_id"

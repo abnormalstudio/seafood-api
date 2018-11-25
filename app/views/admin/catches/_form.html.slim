@@ -6,5 +6,7 @@
   = f.input :latitude, as: :float
   = f.input :longitude, as: :float
   = f.input :location
+  = f.input :vessel
+  = f.input :preservation_method, collection: Catch::PRESERVATION_METHODS.map { |v| [v,v]}
 
   = f.submit class: 'waves-effect waves-light btn-small'

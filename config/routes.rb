@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
 
+  root to: 'sessions#new'
+
   resources :sessions, only: [:new, :create, :destroy]
   get "/logout", to: "sessions#destroy", as: :logout
   resources :registrations, only: [:new, :create]

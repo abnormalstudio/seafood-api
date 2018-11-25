@@ -1,5 +1,11 @@
 class Catch < ApplicationRecord
 
+  PRESERVATION_METHODS = [
+    'fresh',
+    'salted',
+    'iced'
+  ].freeze
+
   belongs_to :fishery
   belongs_to :fish
   has_many :scans
