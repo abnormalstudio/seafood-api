@@ -3,6 +3,7 @@ class Catch < ApplicationRecord
   belongs_to :fishery
   belongs_to :fish
   has_many :scans
+  has_many :reports
 
   validates :latitude, :longitude, :caught_on, :code, :location, presence: true
 

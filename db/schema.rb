@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_213756) do
+ActiveRecord::Schema.define(version: 2018_11_25_012052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2018_11_24_213756) do
     t.datetime "updated_at", null: false
     t.jsonb "nutrients", default: [], null: false
     t.index ["species"], name: "index_fishes_on_species"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "catch_id", null: false
+    t.string "name", null: false
+    t.string "phone", null: false
+    t.string "email", null: false
+    t.text "issue", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["catch_id"], name: "index_reports_on_catch_id"
   end
 
   create_table "scans", force: :cascade do |t|

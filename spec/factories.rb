@@ -1,4 +1,11 @@
 FactoryBot.define do
+  factory :report do
+    catch_id { 1 }
+    name { "MyString" }
+    phone { "MyString" }
+    email { "MyString" }
+    issue { "MyText" }
+  end
   factory :user do
     email { "MyString" }
     name { "MyString" }
